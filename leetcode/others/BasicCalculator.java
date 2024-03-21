@@ -9,6 +9,8 @@ import java.util.Stack;
  * <p>数字和符号正常压入栈
  * <p>当遇到 ”）“ 触发一次括号内结算
  *
+ *
+ * // TODO: 递归思维，括号内的可以看作一个子集
  * @author lbli
  */
 public class BasicCalculator {
