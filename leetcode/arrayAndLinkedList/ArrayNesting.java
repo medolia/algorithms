@@ -18,6 +18,9 @@ public class ArrayNesting {
 
     /**
      * <a href='https://leetcode.cn/problems/array-nesting/'>565. 数组嵌套</a>
+     *
+     * <p>思路：构建有向无环图
+     * 时空复杂度：O(N)，O(N+C) C=最长链的长度
      */
     public int arrayNesting(int[] nums) {
         Set<Integer> memo = new HashSet<>();
