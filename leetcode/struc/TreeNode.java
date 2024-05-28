@@ -18,4 +18,11 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    @Override
+    public String toString() {
+        return String.format("left: %s, right: %s",
+                left == null ? "null" : left.val,
+                right == null ? "null" : right.val);
+    }
 }

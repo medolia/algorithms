@@ -1,6 +1,9 @@
 package tree;
 
+import struc.TreeNode;
+
 /**
+ * 算出树中最大值的路径
  * https://leetcode.cn/problems/binary-tree-maximum-path-sum/
  */
 public class Leetcode124BinaryTreeMaximumPathSum {
@@ -8,18 +11,18 @@ public class Leetcode124BinaryTreeMaximumPathSum {
     int result = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
-        onsideMax(root);
+        oneSideMax(root);
 
         return result;
     }
 
-    public int onsideMax(TreeNode root) {
+    private int oneSideMax(TreeNode root) {
         if (null == root) {
             return 0;
         }
 
-        int left = Math.max(0, onsideMax(root.left));
-        int right = Math.max(0, onsideMax(root.right));
+        int left = Math.max(0, oneSideMax(root.left));
+        int right = Math.max(0, oneSideMax(root.right));
 
         result = Math.max(result, left + root.val + right);
 

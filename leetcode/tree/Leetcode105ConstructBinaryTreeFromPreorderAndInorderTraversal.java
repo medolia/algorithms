@@ -1,6 +1,9 @@
 package tree;
 
+import struc.TreeNode;
+
 /**
+ * 给定前序中序遍历还原树
  * https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  */
 public class Leetcode105ConstructBinaryTreeFromPreorderAndInorderTraversal {
