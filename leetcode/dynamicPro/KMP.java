@@ -18,6 +18,12 @@ public class KMP {
         buildDFA(pattern);
     }
 
+    public static void main(String[] args) {
+        KMP machine = new KMP("ac");
+        int startIdx = machine.search("hello");
+        System.out.println("startIdx: " + startIdx);
+    }
+
     private void buildDFA(String pattern) {
         N = pattern.length();
         dp = new int[N][256];
