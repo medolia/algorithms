@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  * @author lbli
  */
-public class Leetcode215FindKMaxValuesInNNumbers {
+class Leetcode215FindKMaxValuesInNNumbers {
 
     public static void main(String[] args) {
         int[] arr = {1, -2, 3, 49, 5};

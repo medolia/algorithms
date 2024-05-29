@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author lbli
  */
-public class QuickSort {
+class QuickSort {
     public static void main(String[] args) {
         int[] arr = {1, 5, -10, 9, 20, 31};
         new QuickSort().sort(arr);

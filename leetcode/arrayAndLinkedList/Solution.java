@@ -468,31 +468,6 @@ public class Solution {
     }
 
     /**
-     * 23. 合并K个升序链表
-     * <p>
-     * 给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。
-     * <p>
-     * 思路：使用小顶堆，先将所有链表头部置入堆中，再将堆顶元素置入链表；
-     */
-    public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.val));
-        for (ListNode node : lists) {
-            if (node != null) queue.offer(node);
-        }
-
-        ListNode dummyHead = new ListNode(0), curr = dummyHead;
-        while (!queue.isEmpty()) {
-            ListNode minNode = queue.poll();
-            curr.next = minNode;
-            curr = curr.next;
-            minNode = minNode.next;
-            if (minNode != null) queue.offer(minNode);
-        }
-
-        return dummyHead.next;
-    }
-
-    /**
      * 25. K 个一组翻转链表
      * <p>
      * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -761,14 +736,14 @@ public class Solution {
 
     /**
      * 830. 较大分组的位置
-     *
+     * <p>
      * 在一个由小写字母构成的字符串 s 中，包含由一些连续的相同字符所构成的分组。
      * 例如，在字符串 s = "abbxxxxzyy" 中，就含有 "a", "bb", "xxxx", "z" 和 "yy" 这样的一些分组。
      * 分组可以用区间 [start, end] 表示，其中 start 和 end 分别表示该分组的起始和终止位置的下标。
      * 上例中的 "xxxx" 分组用区间表示为 [3,6] 。
      * 我们称所有包含大于或等于三个连续字符的分组为 较大分组 。
      * 找到每一个 较大分组 的区间，按起始位置下标递增顺序排序后，返回结果。
-     *
+     * <p>
      * 思路：一次线扫描。
      */
     public List<List<Integer>> largeGroupPositions(String s) {

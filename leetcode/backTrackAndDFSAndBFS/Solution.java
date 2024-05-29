@@ -284,60 +284,6 @@ public class Solution {
     }
 
     /**
-     * 51. N 皇后
-     * <p>
-     * n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
-     * 即两两皇后不处于同一行、列或斜线上。
-     * <p>
-     * 思路：回溯
-     * 关键：使用三个 boolean 数组判定是否该列、两斜线上已有皇后放置；
-     */
-    LinkedList<List<String>> res51;
-    LinkedList<String> tmp51;
-    boolean[] cols, cross1, cross2;
-
-    public List<List<String>> solveNQueens(int n) {
-        res51 = new LinkedList<>();
-        tmp51 = new LinkedList<>();
-        cols = new boolean[n];
-        cross1 = new boolean[2 * n - 1];
-        cross2 = new boolean[2 * n - 1];
-
-        backTrack51(0, n);
-
-        return res51;
-    }
-
-    void backTrack51(int currR, int n) {
-        if (currR == n) {
-            res51.add(new ArrayList<>(tmp51));
-            return;
-        }
-
-        char[] opts = new char[n];
-        Arrays.fill(opts, '.');
-
-        for (int col = 0; col < n; col++) {
-            if (cols[col] || cross1[currR - col + n - 1] || cross2[currR + col])
-                continue;
-
-            opts[col] = 'Q';
-            tmp51.add(String.valueOf(opts));
-            cols[col] = true;
-            cross1[currR - col + n - 1] = true;
-            cross2[currR + col] = true;
-
-            backTrack51(currR + 1, n);
-
-            opts[col] = '.';
-            tmp51.removeLast();
-            cols[col] = false;
-            cross1[currR - col + n - 1] = false;
-            cross2[currR + col] = false;
-        }
-    }
-
-    /**
      * 77. 组合
      * <p>
      * 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
