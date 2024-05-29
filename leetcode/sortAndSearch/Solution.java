@@ -89,49 +89,6 @@ public class Solution {
     }
 
     /**
-     * 215. 数组中的第K个最大元素
-     *
-     * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而
-     * 不是第 k 个不同的元素。
-     *
-     * 思路：引入快排框架，快排分区后得到的索引 p 即为 数组中第 p 小的数；
-     */
-    public int findKthLargest(int[] nums, int k) {
-        int lo = 0, hi = nums.length-1;
-        k = nums.length-k; // 第 k 大，对应升序排序后的索引 n-k；
-
-        while (lo <= hi) {
-            int p = partition(nums, lo, hi);
-            if (p < k) lo = p + 1;
-            else if (p > k) hi = p -1;
-            else return nums[p];
-        }
-
-        return -1;
-    }
-
-    int partition(int[] nums, int lo, int hi) {
-        int pivot = nums[lo];
-        int j = lo;
-
-        for (int i = lo + 1; i<= hi; i++) {
-            if (nums[i] < pivot) {
-                j++;
-                swap(nums, i, j);
-            }
-        }
-
-        swap(nums, j, lo);
-        return j;
-    }
-
-    void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    /**
      * 241. 为运算表达式设计优先级
      *
      * 给定一个含有数字和运算符的字符串，为表达式添加括号，改变其运算优先级以求出不同的结果。你需要给出所有可能的组合的结果。

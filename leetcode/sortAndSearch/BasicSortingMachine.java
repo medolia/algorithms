@@ -1,8 +1,5 @@
 package sortAndSearch;
 
-import design.NSum;
-import struc.Node;
-
 public class BasicSortingMachine {
     /**
      * 插入排序
@@ -61,36 +58,6 @@ public class BasicSortingMachine {
             else if (less(aux[i], aux[j])) a[k] = aux[i++];
             else a[k] = aux[j++];
         }
-    }
-
-    /**
-     * 快速排序
-     * 核心是取一基线值并分开小于基线值和大于等于基线值的部分，然后再将基线左右两部分递归排序；
-     */
-    public void QuickSort(Comparable[] a) {
-        QuickSort(a, 0, a.length - 1);
-    }
-
-    private void QuickSort(Comparable[] a, int lo, int hi) {
-        if (lo >= hi) return;
-        int p = partition(a, lo, hi);
-        QuickSort(a, lo, p - 1);
-        QuickSort(a, p + 1, hi);
-    }
-
-    private int partition(Comparable[] a, int lo, int hi) {
-        int j = lo;
-        Comparable pivot = a[lo];
-
-        for (int i = lo + 1; i <= hi; i++) {
-            if (less(a[i], pivot)) {
-                j++;
-                swap(a, j, i);
-            }
-        }
-
-        swap(a, lo, j);
-        return j;
     }
 
     /**
