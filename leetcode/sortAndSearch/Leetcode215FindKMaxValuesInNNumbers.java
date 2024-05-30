@@ -23,7 +23,6 @@ class Leetcode215FindKMaxValuesInNNumbers {
         System.out.printf("数组 %s 第 %s大的元素：%s%n", Arrays.toString(arr), k, result);
     }
 
-
     public int findKthLargest(int[] nums, int k) {
         int l = 0, r = nums.length - 1;
         k = nums.length - k; // 第 k 大，对应升序排序后的索引 n-k；

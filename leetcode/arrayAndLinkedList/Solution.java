@@ -544,39 +544,6 @@ public class Solution {
     }
 
     /**
-     * 42. 接雨水
-     * <p>
-     * 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
-     * <p>
-     * 思路：双指针，将每个柱子对接雨水总量的贡献加起来即为结果；
-     * 左指针从 0 开始向右，右指针从 n-1 开始向左，l_max、r_max 分别为当前左、右指针扫描过的最大值；
-     * 若 l_max < r_max，则可以确定位置为 l 的柱子对结果的贡献为 l_max - height[l]，因为：
-     * 1. 这个量是 l 处不会向左溢出的最大值，而因为 r_max 较大，肯定也不会右溢出；
-     * 2. l 与 r 之间（l, r）的柱子为任意值都不会影响这个结果，
-     */
-    public int trap(int[] height) {
-        if (height.length <= 2) return 0;
-        int l = 0, r = height.length - 1;
-        int l_max = height[l], r_max = height[r];
-
-        int total = 0;
-        while (l <= r) {
-            l_max = Math.max(l_max, height[l]);
-            r_max = Math.max(r_max, height[r]);
-
-            if (l_max < r_max) {
-                total += l_max - height[l];
-                ++l;
-            } else {
-                total += r_max - height[r];
-                --r;
-            }
-        }
-
-        return total;
-    }
-
-    /**
      * 92. 反转链表 II
      * <p>
      * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
