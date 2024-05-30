@@ -67,33 +67,33 @@ class Leetcode51SolveNQueens {
     }
 
     static class Marker {
-        boolean[] cols, rows, rightDownSplits, rightUpSplits;
+        boolean[] cols, rows, rightDownDiagonals, rightUpDiagonals;
         int n;
 
         Marker(int n) {
             cols = new boolean[n + 1];
             rows = new boolean[n + 1];
-            rightDownSplits = new boolean[n * 2 + 1];
-            rightUpSplits = new boolean[n * 2 + 1];
+            rightDownDiagonals = new boolean[n * 2 + 1];
+            rightUpDiagonals = new boolean[n * 2 + 1];
             this.n = n;
         }
 
         void mark(int col, int row) {
             cols[col] = true;
             rows[row] = true;
-            rightDownSplits[col + row] = true;
-            rightUpSplits[col - row + n] = true;
+            rightDownDiagonals[col + row] = true;
+            rightUpDiagonals[col - row + n] = true;
         }
 
         void unmark(int col, int row) {
             cols[col] = false;
             rows[row] = false;
-            rightDownSplits[col + row] = false;
-            rightUpSplits[col - row + n] = false;
+            rightDownDiagonals[col + row] = false;
+            rightUpDiagonals[col - row + n] = false;
         }
 
-        public boolean existJudge(int col, int row) {
-            return !cols[col] && !rows[row] && !rightDownSplits[col + row] && !rightUpSplits[col - row + n];
+        boolean existJudge(int col, int row) {
+            return !cols[col] && !rows[row] && !rightDownDiagonals[col + row] && !rightUpDiagonals[col - row + n];
         }
     }
 
