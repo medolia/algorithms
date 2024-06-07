@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * 搜索树恰好两节点交换，尝试还原
  * 中序获得序列 -> 标记 -> 中序还原
- * https://leetcode.cn/problems/recover-binary-search-tree/submissions/535563480/
+ * <a href="https://leetcode.cn/problems/recover-binary-search-tree/submissions/535563480/">还原二叉树</a>
  */
-public class Leetcode99RecoverBinarySearchTree {
+class Leetcode99RecoverBinarySearchTree {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1, new TreeNode(3, null, new TreeNode(2)), null);
 

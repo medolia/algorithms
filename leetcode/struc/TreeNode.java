@@ -1,11 +1,13 @@
 package struc;
 
+
 public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
     public TreeNode parent;
 
+    @SuppressWarnings("unused")
     public TreeNode() {
     }
 
@@ -21,7 +23,8 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return String.format("left: %s, right: %s",
+        return String.format("val:%s, left: %s, right: %s",
+                this.val,
                 left == null ? "null" : left.val,
                 right == null ? "null" : right.val);
     }

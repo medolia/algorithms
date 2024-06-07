@@ -6,7 +6,7 @@ import struc.TreeNode;
  * 算出树中最大值的路径
  * https://leetcode.cn/problems/binary-tree-maximum-path-sum/
  */
-public class Leetcode124BinaryTreeMaximumPathSum {
+class Leetcode124BinaryTreeMaximumPathSum {
 
     int result = Integer.MIN_VALUE;
 

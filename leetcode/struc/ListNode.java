@@ -8,7 +8,8 @@ public class ListNode {
         val = x;
     }
 
-    public ListNode() { }
+    public ListNode() {
+    }
 
     public static ListNode fromValArr(int... arr) {
         ListNode dummy = new ListNode(0);
@@ -26,7 +27,8 @@ public class ListNode {
         StringBuilder builder = new StringBuilder(String.valueOf(this.val));
 
         ListNode cur = this.next;
-        while (null != cur) {
+        int limit = 10;
+        while (null != cur && --limit > 0) {
             builder.append("->").append(cur.val);
             cur = cur.next;
         }
