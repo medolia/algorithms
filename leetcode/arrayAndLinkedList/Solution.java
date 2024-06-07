@@ -405,44 +405,6 @@ public class Solution {
     }
 
     /**
-     * 15. 三数之和
-     * 使用双指针，注意数组可能存在重复数字，当两个指针处的数字与之前的相等则
-     * 使用 continue 跳过这次遍历
-     */
-    public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
-        int len = nums.length;
-
-        for (int first = 0; first < len; first++) {
-            if (first > 0 && nums[first] == nums[first - 1])
-                continue;
-
-            int third = len - 1;
-            for (int second = first + 1; second < len; second++) {
-                if (second > first + 1 && nums[second] == nums[second - 1])
-                    continue;
-
-                int target = -(nums[first] + nums[second]);
-                while (third > second && nums[third] > target) third--;
-
-                // 该 second 值已经不可能找到对应的 third 值了，直接取下一个 first
-                if (third == second) break;
-
-                if (nums[third] == target) {
-                    List<Integer> ans = new ArrayList<>();
-                    ans.add(nums[first]);
-                    ans.add(nums[second]);
-                    ans.add(target);
-                    res.add(ans);
-                }
-            }
-        }
-
-        return res;
-    }
-
-    /**
      * 25. K 个一组翻转链表
      * <p>
      * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
