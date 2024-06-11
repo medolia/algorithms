@@ -34,11 +34,11 @@ class Leetcode148SortList {
         ListNode lSortedHead = sortList(head);
         ListNode rSortedHead = sortList(tmpMid);
 
-        return Common.merge2SortedList(lSortedHead, rSortedHead);
+        return Common.merge2SortedLinkedList(lSortedHead, rSortedHead);
     }
 
     /**
-     * 使用最小堆，空间复杂度 O(n)
+     * 使用最小堆，空间复杂度 O(n)，劣等解
      */
     @SuppressWarnings("all")
     public ListNode sortListLegacy(ListNode head) {

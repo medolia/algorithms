@@ -7,7 +7,7 @@ import struc.ListNode;
  */
 class Common {
 
-    static ListNode merge2SortedList(ListNode lSortedHead, ListNode rSortedHead) {
+    static ListNode merge2SortedLinkedList(ListNode lSortedHead, ListNode rSortedHead) {
         ListNode dummy = new ListNode(0);
         ListNode mergeP = dummy;
         ListNode lP = lSortedHead, rP = rSortedHead;

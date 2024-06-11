@@ -7,7 +7,7 @@ import struc.ListNode;
  * <br>请你将所有链表合并到一个升序链表中，返回合并后的链表。，限制空间复杂度 O(1)
  * <p>
  * 思路：归并思维，类似 {@link Leetcode148SortList}，时：O(kNlogN)，k 为链表的平均长度，N 为链表个数， 空：O(1)
- * <br>使用堆为劣等解，空间复杂度为 O(n)
+ * <br>使用堆为劣等解，空间复杂度为 O(n)，n为总节点数
  * @author lbli
  */
 class Leetcode23MergeSortedLinkedList {
@@ -36,6 +36,6 @@ class Leetcode23MergeSortedLinkedList {
         ListNode lHead = mergeKLists(lists, start, mid);
         ListNode rHead = mergeKLists(lists, mid + 1, end);
 
-        return Common.merge2SortedList(lHead, rHead);
+        return Common.merge2SortedLinkedList(lHead, rHead);
     }
 }
