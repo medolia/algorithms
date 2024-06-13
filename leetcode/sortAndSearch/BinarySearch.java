@@ -70,7 +70,7 @@ class BinarySearch {
             }
         }
 
-        // 区别2：退出循环的条件是 l==r，所以l-1 r-1 都可以。
+        // 区别2：返回 l/r-1
         return l - 1;
     }
 

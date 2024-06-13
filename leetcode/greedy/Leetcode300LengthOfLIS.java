@@ -1,4 +1,4 @@
-package arrayAndLinkedList;
+package greedy;
 
 import java.util.ArrayList;
 import java.util.List;
