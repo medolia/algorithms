@@ -40,9 +40,6 @@ class Leetcode54SpiralOrder {
         if (initRow > endRow || initCol > endCol) {
             return new ArrayList<>();
         }
-        if (initRow > rowM || initCol > colM || endRow < 0 || endCol < 0) {
-            return new ArrayList<>();
-        }
 
         // circle
         List<Integer> circle = new ArrayList<>();

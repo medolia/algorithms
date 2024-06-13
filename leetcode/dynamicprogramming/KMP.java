@@ -1,4 +1,4 @@
-package dynamicPro;
+package dynamicprogramming;
 
 /**
  * KMP 字符匹配状态机

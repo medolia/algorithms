@@ -1,4 +1,4 @@
-package dynamicPro;
+package arrayAndLinkedList;
 
 import java.util.ArrayList;
 import java.util.List;
