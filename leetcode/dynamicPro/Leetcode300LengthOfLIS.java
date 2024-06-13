@@ -47,11 +47,15 @@ class Leetcode300LengthOfLIS {
         return result.size();
     }
 
+    /**
+     * 尝试找插入的最低索引，特殊定制的二分查找
+     */
     private int binarySearchForMinIdx(List<Integer> result, int num) {
         if (result.isEmpty()) {
             return 1;
         }
 
+        // 左右闭区间，结束循环后，l 就是最小索引位置
         int l = 0, r = result.size() - 1;
         while (l <= r) {
             int mid = l + (r - l) / 2;
