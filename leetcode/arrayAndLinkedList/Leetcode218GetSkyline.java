@@ -23,6 +23,7 @@ import java.util.*;
  *
  * @author lbli
  */
+@SuppressWarnings("all")
 class Leetcode218GetSkyline {
 
     public static void main(String[] args) {
@@ -38,11 +39,11 @@ class Leetcode218GetSkyline {
         return (a, b) -> {
             // 1. x 升序
             if (a.x != b.x) return a.x - b.x;
-            // 2. x 相等 都是左边则高度高的优先
+            // 2. x 相等都是左边则高度高的优先
             if (a.left && b.left) return b.h - a.h;
             // 3. x 相等 都是右边则高度低的优先
             if (!a.left && !b.left) return a.h - b.h;
-            // 4. x 相等，左边优先右边
+            // 4. x 相等但不同边，左边优先右边
             return a.left ? -1 : 1;
         };
     }
@@ -87,13 +88,6 @@ class Leetcode218GetSkyline {
             this.x = x;
             this.h = h;
             this.left = left;
-        }
-
-        List<Integer> toPointList() {
-            List<Integer> result = new ArrayList<>();
-            result.add(x);
-            result.add(h);
-            return result;
         }
 
         @Override
