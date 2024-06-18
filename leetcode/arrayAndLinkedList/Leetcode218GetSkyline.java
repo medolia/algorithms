@@ -20,6 +20,7 @@ import java.util.*;
  * <p>
  * 思路：高度优先队列 + 等x线从左至右扫描
  * <p>edge case 关键在于排序：{@link arrayAndLinkedList.Leetcode218GetSkyline#getNodeComparator()}
+ * <p>时：O(NlogN)，排序，维护高度优先序列；空：O(N)，存储节点列表，高度优先序列
  *
  * @author lbli
  */
@@ -43,7 +44,7 @@ class Leetcode218GetSkyline {
             if (a.left && b.left) return b.h - a.h;
             // 3. x 相等 都是右边则高度低的优先
             if (!a.left && !b.left) return a.h - b.h;
-            // 4. x 相等但不同边，左边优先右边
+            // 4. x 相等但不同边，左边优先右边。由此可解决 edge case：{{0, 2, 3}, {2, 5, 3}}
             return a.left ? -1 : 1;
         };
     }
@@ -59,7 +60,6 @@ class Leetcode218GetSkyline {
             nodeList.add(new Node(building[1], building[2], false));
         }
 
-        // 如何解决 edge case：{{0, 2, 3}, {2, 5, 3}}
         nodeList.sort(getNodeComparator());
 
         int prevH = 0;
