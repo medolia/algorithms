@@ -9,7 +9,8 @@ package arrayAndLinkedList;
  * <p>
  * 思路：维护一个统计第一个数出现频率的计数数组 arr[]，一次遍历数组计算元素最后一个数与 k(k - [1,9]) 的最大公因数
  * <p>如果互质则结果数增加 arr[k] 个
- * <p>时：O(N * (10 + logU)，U为最大数；空：O(10)
+ * <p>时：O(N * (10 + logU)，U为最大数，logU对应计算gcd的时间；空：O(10)
+ *
  * @author lbli
  */
 class Leetcode2748CountBeautifulPairs {
@@ -27,6 +28,10 @@ class Leetcode2748CountBeautifulPairs {
         return num;
     }
 
+    private static int lastNumOfANum(int num) {
+        return num % 10;
+    }
+
     /**
      * 求最大公因数
      * <p>
@@ -40,10 +45,6 @@ class Leetcode2748CountBeautifulPairs {
     private static int gcd(int x, int y) {
         // x % y 一定比 y 小
         return y == 0 ? x : gcd(y, x % y);
-    }
-
-    private static int lastNumOfANum(int num) {
-        return num % 10;
     }
 
     public int countBeautifulPairs(int[] nums) {
