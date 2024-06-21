@@ -10,7 +10,7 @@ package dynamicprogramming;
  *
  * @author lbli
  */
-public class Leetcode32LongestValidParentheses {
+class Leetcode32LongestValidParentheses {
 
     public static void main(String[] args) {
         int result = new Leetcode32LongestValidParentheses().longestValidParentheses(")()())");
