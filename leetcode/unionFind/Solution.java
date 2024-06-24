@@ -99,64 +99,6 @@ public class Solution {
     }
 
     /**
-     * 547. 省份数量
-     * <p>
-     * 有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。
-     * 省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。
-     * 给你一个 n x n 的矩阵 isConnected ，其中 isConnected[i][j] = 1 表示第 i 个城市和第 j 个城市直接相连，而 isConnected[i][j] = 0 表示二者不直接相连。
-     * 返回矩阵中 省份 的数量。
-     * <p>
-     * 思路：并查集，注意为避免出错，总是将小索引与大索引链接（union(i, j) 总是有 i < j）；
-     */
-    public int findCircleNum(int[][] isConnected) {
-        int n = isConnected.length;
-        UnionFind547 unionFind = new UnionFind547(n);
-
-        for (int l = 1; l < n; l++)
-            for (int i = 0; i + l < n; i++) {
-                int j = i + l;
-                if (isConnected[i][j] == 1)
-                    unionFind.union(i, j);
-            }
-
-        return unionFind.getCount();
-    }
-
-    class UnionFind547 {
-        int[] parent;
-        int count;
-
-        public UnionFind547(int n) {
-            count = n;
-            parent = new int[n];
-            for (int i = 0; i < n; i++)
-                parent[i] = i;
-        }
-
-        int find(int x) {
-            if (x != parent[x]) {
-                parent[x] = find(parent[x]);
-            }
-
-            return parent[x];
-        }
-
-        void union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX != rootY) {
-                parent[rootX] = rootY;
-                count--;
-            }
-        }
-
-        int getCount() {
-            return count;
-        }
-    }
-
-    /**
      * 684. 冗余连接
      *
      * 在本问题中, 树指的是一个连通且无环的无向图。
