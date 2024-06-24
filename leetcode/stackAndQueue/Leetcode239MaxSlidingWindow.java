@@ -29,7 +29,8 @@ class Leetcode239MaxSlidingWindow {
     @SuppressWarnings("all")
     public int[] maxSlidingWindow(int[] nums, int k) {
         Deque<Integer> deque = new ArrayDeque<>();
-        int[] tmp = new int[nums.length];
+        // rightBoundRes[i]=滑动窗口右边界为 i 时的最大值
+        int[] rightBoundRes = new int[nums.length];
 
         // 初始化窗口
         for (int i = 0; i < k; i++) {
@@ -39,7 +40,7 @@ class Leetcode239MaxSlidingWindow {
 
             deque.offerLast(i);
 
-            tmp[i] = nums[deque.peekFirst()];
+            rightBoundRes[i] = nums[deque.peekFirst()];
         }
 
         // 移动窗口
@@ -55,11 +56,11 @@ class Leetcode239MaxSlidingWindow {
             }
             deque.offerLast(i);
 
-            tmp[i] = nums[deque.peekFirst()];
+            rightBoundRes[i] = nums[deque.peekFirst()];
         }
 
         int[] res = new int[nums.length - k + 1];
-        System.arraycopy(tmp, k - 1, res, 0, nums.length - k + 1);
+        System.arraycopy(rightBoundRes, k - 1, res, 0, nums.length - k + 1);
         return res;
     }
 
