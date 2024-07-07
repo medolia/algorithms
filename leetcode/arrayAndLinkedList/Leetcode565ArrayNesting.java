@@ -10,13 +10,13 @@ import java.util.Set;
  * <p>时空复杂度：O(N)，O(N+C) C=最长链的长度
  * @author lbli
  */
-class ArrayNesting {
+class Leetcode565ArrayNesting {
 
     public static void main(String[] args) {
 //        int[] nums = {5, 4, 0, 3, 1, 6, 2};
         int[] nums = {0,1,2};
 
-        int res = new ArrayNesting().arrayNesting(nums);
+        int res = new Leetcode565ArrayNesting().arrayNesting(nums);
     }
 
     public int arrayNesting(int[] nums) {
