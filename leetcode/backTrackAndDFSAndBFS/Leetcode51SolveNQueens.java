@@ -2,6 +2,7 @@ package backTrackAndDFSAndBFS;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
@@ -16,8 +17,10 @@ import java.util.List;
 class Leetcode51SolveNQueens {
 
     public static void main(String[] args) {
-        List<List<String>> result = new Leetcode51SolveNQueens().solveNQueens(5);
-        System.out.println(result);
+        List<List<String>> result = new Leetcode51SolveNQueens().solveNQueens(9);
+        System.out.println(result.stream()
+                .map(e -> String.join("\n", e))
+                .collect(Collectors.joining("\n---------------------\n")));
     }
 
     List<List<String>> result;
@@ -93,7 +96,9 @@ class Leetcode51SolveNQueens {
         }
 
         boolean existJudge(int col, int row) {
-            return !cols[col] && !rows[row] && !rightDownDiagonals[col + row] && !rightUpDiagonals[col - row + n];
+            return !cols[col] && !rows[row]
+                    && !rightDownDiagonals[col + row]
+                    && !rightUpDiagonals[col - row + n];
         }
     }
 
