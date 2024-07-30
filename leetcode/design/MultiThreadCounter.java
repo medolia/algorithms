@@ -1,11 +1,9 @@
-package dualpointer;
+package design;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 class MultiThreadCounter {
 
@@ -36,23 +34,23 @@ class MultiThreadCounter {
         }
     }
 
-    private static final ExecutorService EXECUTOR_SERVICE =
-            Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    private static ExecutorService EXECUTOR_SERVICE;
     private static final int LENGTH_THRESHOLD = 1000;
     private static final Object lock = new Object();
-    private static ConcurrentHashMap<String, Integer> GLOBAL_COUNTER;
+    private static Map<String, Integer> GLOBAL_COUNTER;
 
     private static Map<String, Integer> count(String[] arr) throws Exception {
-        synchronized (lock) {
-            GLOBAL_COUNTER = new ConcurrentHashMap<>();
-            count(arr, 0, arr.length - 1);
+        GLOBAL_COUNTER = new HashMap<>();
+        EXECUTOR_SERVICE =
+                Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        count(arr, 0, arr.length - 1);
 
-            while (!((ThreadPoolExecutor) EXECUTOR_SERVICE).getQueue().isEmpty()) {
-                //
-            }
-
-            return new HashMap<>(GLOBAL_COUNTER);
+        EXECUTOR_SERVICE.shutdown();
+        while (!EXECUTOR_SERVICE.isTerminated()) {
+            //
         }
+
+        return new HashMap<>(GLOBAL_COUNTER);
     }
 
     private static void count(String[] arr, int l, int r) throws Exception {
@@ -62,9 +60,11 @@ class MultiThreadCounter {
 
         if (r - l <= LENGTH_THRESHOLD) {
             EXECUTOR_SERVICE.submit(() -> {
-                System.out.printf("l:%d, r:%d%n", l, r);
-                for (int i = l; i <= r; i++) {
-                    GLOBAL_COUNTER.merge(arr[i], 1, Integer::sum);
+                synchronized (lock) {
+//                    System.out.printf("l:%d, r:%d%n", l, r);
+                    for (int i = l; i <= r; i++) {
+                        GLOBAL_COUNTER.merge(arr[i], 1, Integer::sum);
+                    }
                 }
             });
             return;
