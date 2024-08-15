@@ -77,10 +77,13 @@ class A025Memory {
         for (int i = 0; i < allocatedBlockList.size(); i++) {
             Block curr = allocatedBlockList.get(i);
 
+            // 第一个左边
             if (i == 0 && curr.l >= len) {
                 allocatedBlockList.add(0, new Block(0, len));
             }
 
+
+            // 两两之间的间隙
             if (i > 0) {
                 Block prev = allocatedBlockList.get(i - 1);
                 int prevR = prev.r();
@@ -90,6 +93,7 @@ class A025Memory {
                 }
             }
 
+            // 最后一个右边
             if (i == allocatedBlockList.size() - 1 && (size - curr.r() >= len)) {
                 allocatedBlockList.add(new Block(curr.r(), len));
                 return curr.r();

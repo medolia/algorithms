@@ -1,4 +1,4 @@
-package tree;
+package treeAndGraph;
 
 import struc.Node;
 import struc.TreeNode;
