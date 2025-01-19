@@ -19,6 +19,9 @@ class Leetcode148SortList {
         System.out.println(result);
     }
 
+    /**
+     * 归并框架
+     */
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
 

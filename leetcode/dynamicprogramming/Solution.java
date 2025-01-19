@@ -207,7 +207,8 @@ public class Solution {
 
         for (int i = 1; i <= sLen; i++)
             for (int j = 1; j <= pLen; j++)
-                dp[i][j] = p.charAt(j - 1) != '*' ? dp[i - 1][j - 1] && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1)) :
+                dp[i][j] = p.charAt(j - 1) != '*' ?
+                        dp[i - 1][j - 1] && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1)) :
                         // * 前字符：不出现 ｜｜ 出现一次 ｜｜ 出现多次
                         dp[i][j - 2] || dp[i][j - 1] || dp[i - 1][j] && (p.charAt(j - 2) == s.charAt(i - 1) || p.charAt(j - 2) == '.');
 

@@ -14,7 +14,7 @@ import java.util.Deque;
 class Leetcode82DeleteDuplicates {
 
     public static void main(String[] args) {
-        ListNode res = new Leetcode82DeleteDuplicates().deleteDuplicates(
+        ListNode res = new Leetcode82DeleteDuplicates().deleteDuplicatesV2(
                 ListNode.fromValArr(1, 2, 3, 3, 4, 4, 5));
         System.out.println(res);
     }
@@ -41,6 +41,29 @@ class Leetcode82DeleteDuplicates {
 
         resP.next = deque.size() == 1 ? deque.pop() : null;
         return dummyHead.next;
+    }
+
+    public ListNode deleteDuplicatesV2(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode cur = dummy;
+        while (cur.next != null && cur.next.next != null) {
+            if (cur.next.val == cur.next.next.val) {
+                int x = cur.next.val;
+                while (cur.next != null && cur.next.val == x) {
+                    cur.next = cur.next.next;
+                }
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        return dummy.next;
     }
 
 }
