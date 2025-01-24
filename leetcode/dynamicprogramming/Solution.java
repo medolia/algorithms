@@ -663,9 +663,10 @@ public class Solution {
 
         for (int i = 1; i <= n; i++)
             for (int j = 1; j <= amount; j++) {
-                if (j < coins[i - 1])
+                int coin = coins[i - 1];
+                if (j < coin)
                     dp[i][j] = dp[i - 1][j];
-                else dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
+                else dp[i][j] = dp[i - 1][j] + dp[i][j - coin];
             }
 
         return dp[n][amount];
