@@ -37,7 +37,7 @@ class Leetcode148SortList {
         ListNode lSortedHead = sortList(head);
         ListNode rSortedHead = sortList(tmpMid);
 
-        return Common.merge2SortedLinkedList(lSortedHead, rSortedHead);
+        return Utils.merge2SortedLinkedList(lSortedHead, rSortedHead);
     }
 
     /**

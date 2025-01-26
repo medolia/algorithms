@@ -1,4 +1,4 @@
-package intelligence;
+package design;
 
 class OrderedPrintSynLock {
 

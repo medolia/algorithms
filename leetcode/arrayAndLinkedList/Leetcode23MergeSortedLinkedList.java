@@ -36,6 +36,6 @@ class Leetcode23MergeSortedLinkedList {
         ListNode lHead = mergeKLists(lists, start, mid);
         ListNode rHead = mergeKLists(lists, mid + 1, end);
 
-        return Common.merge2SortedLinkedList(lHead, rHead);
+        return Utils.merge2SortedLinkedList(lHead, rHead);
     }
 }

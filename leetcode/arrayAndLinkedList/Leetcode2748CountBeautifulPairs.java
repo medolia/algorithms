@@ -32,28 +32,13 @@ class Leetcode2748CountBeautifulPairs {
         return num % 10;
     }
 
-    /**
-     * 求最大公因数
-     * <p>
-     * 约数：假如整数 x 可以整除 y，那么 y 为 x 的一个约数，所有正整数都是 0 的约数，1 的约数只有 1
-     * <p>
-     * 定理：x = ay + b，那么 x 与 y 的最大公因数等于 b 与 y 的最大公因数
-     *
-     * @param x 较大值
-     * @param y 较小值
-     */
-    private static int gcd(int x, int y) {
-        // x % y 一定比 y 小
-        return y == 0 ? x : gcd(y, x % y);
-    }
-
     public int countBeautifulPairs(int[] nums) {
         int res = 0;
         int[] firstNumCountArr = new int[10];
 
         for (int num : nums) {
             for (int y = 1; y <= 9; y++) {
-                if (y == 1 || gcd(lastNumOfANum(num), y) == 1) {
+                if (y == 1 || Utils.gcd(lastNumOfANum(num), y) == 1) {
                     res += firstNumCountArr[y];
                 }
             }
