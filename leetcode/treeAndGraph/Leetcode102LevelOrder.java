@@ -31,13 +31,13 @@ class Leetcode102LevelOrder {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-        List<Integer> level = new ArrayList<>();
+        List<Integer> currLevelList = new ArrayList<>();
         int levelSize = 1, nextLevelSize = 0;
         while (!queue.isEmpty()) {
             TreeNode curr = queue.poll();
 
             if (null != curr) {
-                level.add(curr.val);
+                currLevelList.add(curr.val);
                 queue.add(curr.left);
                 queue.add(curr.right);
                 nextLevelSize += 2;
@@ -45,10 +45,10 @@ class Leetcode102LevelOrder {
 
             --levelSize;
             if (levelSize == 0) {
-                if (!level.isEmpty()) {
-                    res.add(level);
+                if (!currLevelList.isEmpty()) {
+                    res.add(currLevelList);
                 }
-                level = new ArrayList<>();
+                currLevelList = new ArrayList<>();
                 levelSize = nextLevelSize;
                 nextLevelSize = 0;
             }

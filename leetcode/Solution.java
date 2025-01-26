@@ -1,12 +1,56 @@
+import struc.TreeNode;
+
 import java.util.*;
 
 class Solution {
 
     public static void main(String[] args) {
 
-        System.out.println(new Solution().isSubsequence("abc", "ahbgdc"));
-        System.out.println(new Solution().isSubsequence("axc", "ahbgdc"));
+        Solution solution = new Solution();
 
+        TreeNode root = TreeNode.buildTreeFromLevelOrder(new Integer[]{1, 2, 3, 4, null, 5, 6, null, null, 7});
+
+        System.out.println(solution.findBottomLeftValue(root));;
+
+    }
+
+    public int findBottomLeftValue(TreeNode root) {
+
+        Deque<TreeNode> deque = new LinkedList<>();
+        deque.offer(root);
+        int level = 1;
+        int levelCount = 1;
+        int nextLevelCount = 0;
+        boolean levelFirstElement = false;
+        int resV = root.val;
+
+        while (!deque.isEmpty()) {
+            TreeNode node = deque.poll();
+            if (levelFirstElement) {
+                levelFirstElement = false;
+                resV = node.val;
+            }
+
+            if (node.left != null) {
+                deque.offer(node.left);
+                nextLevelCount++;
+
+            }
+
+            if (node.right != null) {
+                deque.offer(node.right);
+                nextLevelCount++;
+            }
+
+            if (--levelCount <= 0) {
+                level++;
+                levelCount = nextLevelCount;
+                nextLevelCount = 0;
+                levelFirstElement = true;
+            }
+        }
+
+        return resV;
     }
 
     /**
