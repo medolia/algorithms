@@ -4,18 +4,11 @@ import struc.ListNode;
 
 /**
  * <a href="https://leetcode.cn/problems/LGjMqU/solutions/1037737/zhong-pai-lian-biao-by-leetcode-solution-wm25/?envType=company&envId=bytedance&favoriteSlug=bytedance-thirty-days">LCR 026. 重排链表</a>
- * 给定一个单链表 L 的头节点 head ，单链表 L 表示为：
- * <p>
- * L0 → L1 → … → Ln-1 → Ln
- * 请将其重新排列后变为：
- * <p>
- * L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
- * <p>
- * 不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
- * <p>
- * 思路重点：找到中点 + 反转后半部分 + 合并
- * <p>
- * 时空复杂度：O(N) O(1)
+ * <p>给定一个单链表 L 的头节点 head ，单链表 L 表示为：L0 → L1 → … → Ln-1 → Ln
+ * <p>请将其重新排列后变为：L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
+ * <p>不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+ * <p>思路重点：找到中点 + 反转后半部分 + 合并
+ * <p>时空复杂度：O(N) O(1)
  *
  * @author lilongbin
  */
