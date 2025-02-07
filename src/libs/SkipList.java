@@ -1,4 +1,4 @@
-package problems.other.design;
+package libs;
 
 
 import java.util.Random;

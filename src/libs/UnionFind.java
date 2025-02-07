@@ -1,4 +1,4 @@
-package templates;
+package libs;
 
 import java.util.Arrays;
 

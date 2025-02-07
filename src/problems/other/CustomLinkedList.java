@@ -1,11 +1,12 @@
-package problems.other.design;
+package problems.other;
 
 import java.util.Objects;
 
-class LinkedList<T> {
+@SuppressWarnings("all")
+class CustomLinkedList<T> {
 
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
 
         linkedList.add(1);
         linkedList.removeAll(1);
@@ -24,10 +25,10 @@ class LinkedList<T> {
 
     Node head, tail;
 
-    LinkedList() {
+    private CustomLinkedList() {
     }
 
-    void add(T value) {
+    private void add(T value) {
         Node newNode = new Node();
         newNode.value = value;
 
@@ -42,7 +43,7 @@ class LinkedList<T> {
         tail = newNode;
     }
 
-    void removeAll(T value) {
+    private void removeAll(T value) {
         Node p = head;
         while (p != null) {
             if (Objects.equals(p.value, value)) {
@@ -115,7 +116,7 @@ class LinkedList<T> {
         return res.toString();
     }
 
-    static class Node<T> {
+    private static class Node<T> {
         T value;
         Node prev, next;
 

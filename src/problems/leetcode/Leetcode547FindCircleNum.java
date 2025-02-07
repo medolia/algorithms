@@ -1,6 +1,6 @@
 package problems.leetcode;
 
-import templates.UnionFind;
+import libs.UnionFind;
 
 /**
  * <a href="https://leetcode.cn/problems/number-of-provinces/description/">547. 省份数量</a>

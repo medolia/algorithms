@@ -7,7 +7,7 @@ package problems.leetcode;
  * <p>
  * 思路：双指针即可。如果数值有范围可以考虑存储质数判断
  */
-public class Leetcode3115MaximumPrimeDifference {
+class Leetcode3115MaximumPrimeDifference {
 
     public static void main(String[] args) {
         int[] nums = {4, 2, 9, 5, 3};

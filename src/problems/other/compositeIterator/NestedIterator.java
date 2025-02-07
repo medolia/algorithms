@@ -1,4 +1,4 @@
-package problems.other.design.compositeIterator;
+package problems.other.compositeIterator;
 
 import java.util.Iterator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package problems.other.design;
+package templates;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -23,9 +23,7 @@ class ReservoirSample {
     public static int[] reservoir(int[] stream, int k) {
         int[] res = new int[k];
 
-        for (int i = 0; i < k; i++) {
-            res[i] = i;
-        }
+        System.arraycopy(stream, 0, res, 0, k);
 
         for (int i = k; i < stream.length; i++) {
             int ri = random.nextInt(i + 1);

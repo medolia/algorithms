@@ -1,4 +1,4 @@
-package problems.other.design;
+package problems.other;
 
 /**
  * <a href="https://leetcode.cn/problems/maximum-score-of-a-good-subarray/description/">1793. 好子数组的最大分数</a>
