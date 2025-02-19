@@ -15,10 +15,10 @@ import java.util.PriorityQueue;
  * 请你返回到达 右下角 格子 (m - 1, n - 1) 需要经过的最少移动格子数，如果无法到达右下角格子，请你返回 -1 。
  *
  */
-class Leetcode2617 {
+class Leetcode2617MinimumVisitedCellsV2 {
 
     public static void main(String[] args) {
-        Leetcode2617 solution = new Leetcode2617();
+        Leetcode2617MinimumVisitedCellsV2 solution = new Leetcode2617MinimumVisitedCellsV2();
         int res = solution.minimumVisitedCellsV2(new int[][]{
                 {3, 4, 2, 1},
                 {4, 2, 1, 1},
